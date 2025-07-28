@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deeps Law Associates</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Google Font -->
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif; /* Use the professional font */
+            background-color: #000;
+            color: #00BFFF; /* Light Blue */
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 20px; /* Reduced padding */
+            background: linear-gradient(90deg, #00BFFF, #000);
+            color: white;
+        }
+
+        h1 {
+            font-size: 2.5em; /* Reduced font size */
+            margin: 0;
+            text-transform: uppercase; /* Capitalize the main heading */
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between; /* Space between name and links */
+            align-items: center;
+            padding: 10px 20px; /* Padding for the nav */
+            background-color: black; /* Black background for the nav */
+        }
+
+        .nav-name {
+            font-size: 1.2em; /* Font size for the name */
+            font-weight: bold; /* Bold for professionalism */
+            color: white; /* White text color for the name */
+        }
+
+        nav a {
+            color: white; /* White text color for buttons */
+            text-decoration: none;
+            margin: 0 10px; /* Reduced margin */
+            font-size: 1.1em; /* Increased font size from 0.9em */
+            padding: 10px 15px; /* Added padding for better click area */
+            border: 2px solid rgba(0, 191, 255, 0.7); /* Softer border color */
+            border-radius: 5px; /* Rounded corners */
+            background-color: black; /* Black background for buttons */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s; /* Transition for hover effects */
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 191, 255, 0.7); /* Softer blue background on hover */
+            color: #000; /* Text color on hover */
+            transform: scale(1.05); /* Scale effect on hover */
+            box-shadow: 0 4px 10px rgba(0, 191, 255, 0.5); /* Add shadow effect on hover */
+        }
+
+        section {
+            margin: 20px auto; /* Center the section with auto margins */
+            padding: 20px;
+            border-radius: 10px;
+            background-size: cover; /* Cover the entire section */
+            background-position: center; /* Center the background image */
+            display: none; /* Hide all sections by default */
+            color: #FFFF00; /* Changed to Yellow */
+            max-width: 800px; /* Maximum width for the section */
+            text-align: center; /* Center text in the section */
+        }
+
+        #services, #contact {
+            display: block; /* Show the first section by default */
+        }
+
+        h2 {
+            text-transform: uppercase; /* Capitalize section headings */
+            font-weight: 700; /* Bold for section headings */
+        }
+
+        .service-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 2px solid #00BFFF;
+            border-radius: 10px;
+            margin: 10px auto; /* Center the card with auto margins */
+            padding: 20px; /* Increased padding */
+            width: 300px; /* Set a fixed width for square shape */
+            height: 300px; /* Set a fixed height for square shape */
+            display: flex; /* Use flexbox for centering content */
+            flex-direction: column; /* Stack content vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center content horizontally */
+            transition: transform 0.3s, box-shadow 0.3s; /* Transition for hover effects */
+        }
+
+        .service-card:hover {
+            transform: scale(1.1); /* Increased scale for a more noticeable zoom */
+            box-shadow: 0 8px 30px rgba(0, 188, 255, 0.8); /* More intense shadow for highlight */
+        }
+
+        .service-card h3 {
+            background-color: rgba(0, 191, 255, 0.7); /* Highlight background for headings */
+            color: black; /* Default text color for headings */
+            padding: 10px; /* Padding for headings */
+            border-radius: 5px; /* Rounded corners for headings */
+            margin: 0 -10px 10px -10px; /* Adjust margins to align with card */
+            font-size: 1.3em; /* Increased font size for h3 */
+            transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease; /* Smooth transition for background color, color, and transform */
+        }
+
+        .service-card h3:hover {
+            background-color: rgba(0, 255, 255, 0.9); /* Change background color on hover */
+            color: red; /* Change text color to RED on hover for h3 */
+            transform: scale(1.03); /* Slight scale effect on heading text */
+        }
+
+        .service-card p {
+            color: #FFFF00; /* Default yellow color for paragraph text */
+            font-size: 1.2em; /* Increased font size from 1.1em */
+            transition: color 0.3s ease, transform 0.3s ease; /* Smooth transition for color and transform */
+        }
+
+        .service-card p:hover {
+            color: red; /* Change paragraph text to RED on hover */
+            transform: scale(1.02); /* Slight scale effect on paragraph text */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(90deg, #00BFFF, #000);
+            color: white;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 1.1em; /* Increased font size for footer text */
+        }
+
+        /* Removed #map styling as it's no longer a map div */
+        .location-image {
+            width: 100%; /* Make the image responsive */
+            max-width: 600px; /* Max width for larger screens */
+            height: auto; /* Maintain aspect ratio */
+            border-radius: 10px;
+            margin-top: 20px;
+            display: block; /* Center the image */
+            margin-left: auto;
+            margin-right: auto;
+            border: 2px solid #00BFFF; /* Add a border similar to service cards */
+            box-shadow: 0 4px 15px rgba(0, 191, 255, 0.5); /* Add a subtle shadow */
+        }
+
+        .contact-info {
+            background-color: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center; /* Center text in the contact info */
+        }
+
+        /* New style for the contact details box */
+        .contact-details-box {
+            background-color: rgba(128, 128, 128, 0.2); /* Light gray with transparency */
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px; /* Space between box and image */
+            border: 1px solid rgba(255, 255, 255, 0.3); /* Subtle border */
+        }
+
+
+        /* Existing rule for email link, now overridden for red */
+        .contact-info a {
+            color: red !important; /* Email link changed to Red */
+            font-size: 1.1em; /* Increased font size for email link */
+        }
+
+        .contact-info p {
+            color: red; /* Ensure all paragraphs in contact section are red */
+            font-size: 1.1em; /* Increased font size for general contact info paragraphs */
+        }
+
+        .phone-number {
+            font-weight: bold; /* Bold for phone numbers */
+            color: red; /* Phone numbers changed to Red */
+            display: inline-block; /* Allows padding and margin */
+            padding: 8px 15px; /* Padding for button-like appearance */
+            border: 2px solid red; /* Red border for phone buttons */
+            border-radius: 5px; /* Rounded corners */
+            background-color: transparent; /* Transparent background */
+            cursor: pointer; /* Indicate it's clickable */
+            transition: background-color 0.3s, color 0.3s, transform 0.3s, box-shadow 0.3s; /* Smooth transitions */
+            margin: 0 5px; /* Space between phone numbers */
+            font-size: 1.1em; /* Increased font size for phone numbers */
+        }
+
+        .phone-number:hover {
+            background-color: red; /* Red background on hover */
+            color: black; /* Black text on hover */
+            transform: scale(1.05); /* Slight scale effect */
+            box-shadow: 0 4px 10px rgba(255, 0, 0, 0.5); /* Red shadow on hover */
+        }
+
+        @media (max-width: 768px) {
+            .service-card {
+                width: 90%; /* Full width for mobile */
+                height: auto; /* Allow height to adjust for mobile */
+            }
+            .location-image {
+                width: 95%; /* Adjust image width for smaller screens */
+            }
+        }
+
+        /* Background image classes */
+        .bg-image-1 {
+            background-image: url('https://www.livelaw.in/h-upload/2021/09/29/750x450_401605-lady-lawyer.jpg'); /* Original background image */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Added for better visual */
+        }
+
+        .bg-image-2 {
+            background-image: url('https://example.com/background2.jpg'); /* Replace with your image URL */
+        }
+
+        .bg-image-3 {
+            background-image: url('https://example.com/background3.jpg'); /* Replace with your image URL */
+        }
+    </style>
+</head>
+<body class="bg-image-1"> <!-- Default background image class -->
+    <header>
+        <marquee behavior="scroll" direction="left" scrollamount="10">
+            <h1>Welcome to Deeps Law Associates</h1>
+        </marquee>
+        <nav>
+            <div class="nav-name">Adv. Deepali Chavan</div>
+            <div>
+                <a href="#" onclick="showSection('services')">Services</a>
+                <a href="#" onclick="showSection('contact')">Contact Us</a>
+            </div>
+        </nav>
+    </header>
+
+    <section id="services">
+        <h2>Our Services</h2>
+        <div class="service-card">
+            <h3>Legal Cases</h3>
+            <p>All types of legal cases handled with expertise and care.</p>
+        </div>
+        <div class="service-card">
+            <h3>Agreements</h3>
+            <p>Online leave and license agreements tailored to your needs.</p>
+        </div>
+        <div class="service-card">
+            <h3>Notarized Documents</h3>
+            <p>Notarized rent agreements and other legal documents.</p>
+        </div>
+        <div class="service-card">
+            <h3>Deeds</h3>
+            <p>Sale deed, assignment deed, affidavits, and more.</p>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <div class="contact-details-box"> <!-- New box for contact details -->
+            <p>Email: <a href="mailto:adv.deepalic@gmail.com">adv.deepalic@gmail.com</a></p>
+            <p>Phone:
+                <span class="phone-number">8378017525</span>
+                <span class="phone-number">7972407307</span>
+            </p>
+            <h3>Office Address:</h3>
+            <p>Chandrama residency, Near ESI hospital, Mohannagar, Chinchwad, Pune-411019.</p>
+        </div>
+        <h3>Location:</h3>
+        <!-- Replaced Google Map div with an image and updated its src -->
+        <img src="https://streetviewpixels-pa.googleapis.com/v1/thumbnail?panoid=44uSUlWzZT88BumQPGZPXw&cb_client=search.gws-prod.gps&w=408&h=240&yaw=83.85783&pitch=0&thumbfov=100" alt="Office Location" class="location-image">
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Deeps Law Associates. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Fade out the current section
+            document.querySelectorAll('section').forEach(section => {
+                section.style.display = 'none';
+            });
+
+            // Fade in the selected section
+            const selectedSection = document.getElementById(sectionId);
+            selectedSection.style.display = 'block';
+            document.body.style.opacity = 0;
+            setTimeout(() => {
+                document.body.style.opacity = 1;
+            }, 50);
+        }
+        // Removed Google Maps initialization script as it's no longer needed
+    </script>
+</body>
+</html>
